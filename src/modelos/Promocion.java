@@ -1,34 +1,38 @@
 package modelos;
-
 import java.io.Serializable;
+import java.util.Date;
 
 public class Promocion implements Serializable {
-    
+    private static final long serialVersionUID = 1L;
+    private int id;
     private String descripcion;
     private double descuento;
-    private VideoJuego videojuego;
-
-    public Promocion(String descripcion, double descuento, VideoJuego videojuego) {
+    private Date fechaInicio;
+    private Date fechaFin;
+    private static int contadorId = 1;
+    
+    public Promocion(String descripcion, double descuento, Date fechaInicio, Date fechaFin) {
+        this.id = contadorId++;
         this.descripcion = descripcion;
         this.descuento = descuento;
-        this.videojuego = videojuego;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
     }
-
-    // Getters y Setters
+    
+    public int getId() { return id; }
     public String getDescripcion() { return descripcion; }
     public double getDescuento() { return descuento; }
-    public VideoJuego getVideojuego() { return videojuego; }
-
-    public void setDescripcion(String descripcion) { this.descripcion = descripcion; }
-    public void setDescuento(double descuento) { this.descuento = descuento; }
-    public void setVideojuego(VideoJuego videojuego) { this.videojuego = videojuego; }
-
-    // Método clave para aplicar el descuento
-    public double aplicarDescuento(double precioOriginal) {
-        // El descuento es un valor entre 0.0 y 1.0 (ej. 0.1 para 10%)
-        if (descuento > 0 && descuento <= 1.0) {
-            return precioOriginal * (1.0 - descuento);
-        }
-        return precioOriginal; // No aplica descuento
+    public Date getFechaInicio() { return fechaInicio; }
+    public Date getFechaFin() { return fechaFin; }
+    
+    public boolean esValida() {
+        Date hoy = new Date();
+        return hoy.after(fechaInicio) && hoy.before(fechaFin);
+    }
+    
+    @Override
+    public String toString() {
+        return "Promocion{" + "id=" + id + ", " + descripcion + 
+               ", " + descuento + "% descuento}";
     }
 }

@@ -1,23 +1,25 @@
 package modelos;
+import java.io.Serializable;
 
-import modelos.Promocion;
-import gestores.Tienda; // Necesita acceder a la clase Tienda
-
-public class Administrador extends Usuario {
-
-    public Administrador(int id, String nombre, String email, String password) {
-        super(id, nombre, email, password);
+public class Administrador extends Usuario implements Serializable {
+    private static final long serialVersionUID = 1L;
+    private String codigoAdmin;
+    private String departamento;
+    
+    public Administrador(String nombre, String email, String password, String codigoAdmin, String departamento) {
+        super(nombre, email, password, "administrador");
+        this.codigoAdmin = codigoAdmin;
+        this.departamento = departamento;
     }
-
-    // Métodos de acción
-    public void agregarPromocion(Promocion promocion, Tienda tienda) {
-        // Lógica: La Tienda o Gestor debe tener una lista de promociones
-        tienda.agregarPromocion(promocion); 
-        System.out.println("Promoción " + promocion.getDescripcion() + " agregada.");
-    }
-
-    public void gestionarTienda(Tienda tienda) {
-        System.out.println("Acceso a gestión de tienda (inventario, usuarios).");
-        // Aquí iría la lógica para llamar a métodos de gestión en Tienda
+    
+    public String getCodigoAdmin() { return codigoAdmin; }
+    public void setCodigoAdmin(String codigoAdmin) { this.codigoAdmin = codigoAdmin; }
+    public String getDepartamento() { return departamento; }
+    public void setDepartamento(String departamento) { this.departamento = departamento; }
+    
+    @Override
+    public String toString() {
+        return "Administrador{" + "id=" + id + ", nombre='" + nombre + '\'' +
+               ", email='" + email + '\'' + ", departamento='" + departamento + '\'' + '}';
     }
 }

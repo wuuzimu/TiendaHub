@@ -1,96 +1,64 @@
 package gestores;
-
-import java.util.ArrayList;
-import java.util.List;
-import modelos.VideoJuego;
 import modelos.Usuario;
-import modelos.Cliente;
-import modelos.Promocion;
+import modelos.VideoJuego;
+import modelos.Compra;
+import modelos.Notificacion;
 import java.io.Serializable;
-import modelos.Carrito;
 
 public class Tienda implements Serializable {
-    
+    private static final long serialVersionUID = 1L;
     private String nombre;
-    private List<VideoJuego> listVideojuegos;
-    private List<Usuario> listUsuarios;
-    private List<Promocion> listPromociones; // Nueva lista para gestión
-
+    private GestorUsuarios gestorUsuarios;
+    private GestorVideoJuegos gestorVideoJuegos;
+    private GestorCompras gestorCompras;
+    private GestorNotificaciones gestorNotificaciones;
+    private GestorPromociones gestorPromociones;
+    
     public Tienda(String nombre) {
         this.nombre = nombre;
-        this.listVideojuegos = new ArrayList<>();
-        this.listUsuarios = new ArrayList<>();
-        this.listPromociones = new ArrayList<>();
+        this.gestorUsuarios = new GestorUsuarios();
+        this.gestorVideoJuegos = new GestorVideoJuegos();
+        this.gestorCompras = new GestorCompras();
+        this.gestorNotificaciones = new GestorNotificaciones();
+        this.gestorPromociones = new GestorPromociones();
     }
-
-    // Getters y Setters (simplicidad)
+    
     public String getNombre() { return nombre; }
-    public List<VideoJuego> getListVideojuegos() { return listVideojuegos; }
-    public List<Usuario> getListUsuarios() { return listUsuarios; }
     
-    // Métodos de gestión
-    public void agregarVideojuego(VideoJuego v) {
-        listVideojuegos.add(v);
-    }
-
-    public void registrarUsuario(Usuario u) {
-        // Verifica si el email ya existe antes de registrar
-        if (listUsuarios.stream().noneMatch(user -> user.getEmail().equals(u.getEmail()))) {
-            listUsuarios.add(u);
-            System.out.println("Usuario " + u.getNombre() + " registrado con éxito.");
-        } else {
-            System.out.println("Error: El email ya está registrado.");
-        }
-    }
+    public GestorUsuarios getGestorUsuarios() { return gestorUsuarios; }
+    public GestorVideoJuegos getGestorVideoJuegos() { return gestorVideoJuegos; }
+    public GestorCompras getGestorCompras() { return gestorCompras; }
+    public GestorNotificaciones getGestorNotificaciones() { return gestorNotificaciones; }
+    public GestorPromociones getGestorPromociones() { return gestorPromociones; }
     
-    public void agregarPromocion(Promocion p) {
-        this.listPromociones.add(p);
-    }
-
-    // --- Funcionalidad Clave ---
-    
-    // 1. Iniciar Sesión
-    public Usuario iniciarSesion(String email, String password) {
-        for (Usuario u : listUsuarios) {
-            if (u.getEmail().equals(email) && u.getPassword().equals(password)) {
-                System.out.println("Sesión iniciada como: " + u.getNombre());
-                return u;
-            }
-        }
-        System.out.println("Error de credenciales. Intente de nuevo.");
-        return null;
-    }
-    
-    // 2. Búsqueda de Videojuegos
-    public List<VideoJuego> buscarVideojuego(String criterioBusqueda) {
-        List<VideoJuego> resultados = new ArrayList<>();
-        String criterioLower = criterioBusqueda.toLowerCase();
-        
-        for (VideoJuego v : listVideojuegos) {
-            if (v.getTitulo().toLowerCase().contains(criterioLower) || 
-                v.getGenero().toLowerCase().contains(criterioLower)) {
-                resultados.add(v);
-            }
-        }
-        return resultados;
-    }
-    
-    // 3. Actualizar Stock después de la Compra (ESENCIAL)
-    public void actualizarStock(Cliente cliente, Carrito carrito) {
-        for (VideoJuego itemCarrito : carrito.getListItems()) {
-            for (VideoJuego v : listVideojuegos) {
-                // Buscamos el videojuego por su ID en la lista de la tienda
-                if (v.getId() == itemCarrito.getId()) {
-                    if (v.getStock() > 0) {
-                        v.setStock(v.getStock() - 1); // Descontar 1 unidad
-                    }
-                    // No hace falta buscar más, ya que se encuentra el item
-                    break;
+    public void procesarCompra(int idUsuario) {
+        Usuario usuario = gestorUsuarios.buscarPorId(idUsuario);
+        if (usuario != null && usuario.getClass().getSimpleName().equals("Cliente")) {
+            modelos.Cliente cliente = (modelos.Cliente) usuario;
+            modelos.Carrito carrito = cliente.getCarrito();
+            
+            if (carrito.getCantidadItems() > 0) {
+                Compra compra = new Compra(idUsuario, carrito);
+                gestorCompras.registrarCompra(compra);
+                
+                for (VideoJuego vj : carrito.getItems()) {
+                    gestorVideoJuegos.descontarStock(vj.getId());
                 }
+                
+                carrito.vaciar();
+                
+                Notificacion notif = new Notificacion(idUsuario, 
+                    "Tu compra por $" + compra.getMonto() + " ha sido registrada.", "compra");
+                gestorNotificaciones.crearNotificacion(notif);
             }
         }
-        // Limpiar carrito después del proceso de stock
-        carrito.getListItems().clear();
-        new modelos.Notificaciones("Stock de la compra de " + cliente.getNombre() + " actualizado.").enviar();
+    }
+    
+    @Override
+    public String toString() {
+        return "Tienda{" + "nombre='" + nombre + '\'' +
+               ", usuarios=" + gestorUsuarios.getTotalUsuarios() +
+               ", videojuegos=" + gestorVideoJuegos.getTotalVideojuegos() +
+               ", compras=" + gestorCompras.getTotalCompras() + '}';
     }
 }

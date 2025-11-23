@@ -1,38 +1,37 @@
 package modelos;
-
-import java.util.Date;
 import java.io.Serializable;
+import java.util.Date;
 
 public class Compra implements Serializable {
-    
+    private static final long serialVersionUID = 1L;
+    private int id;
+    private int idUsuario;
+    private Carrito carrito;
     private double monto;
     private Date fecha;
-    private Carrito carrito;
-    private Pago pago;
-
-    public Compra(Carrito carrito) {
+    private String estado;
+    private static int contadorId = 1;
+    
+    public Compra(int idUsuario, Carrito carrito) {
+        this.id = contadorId++;
+        this.idUsuario = idUsuario;
+        this.carrito = carrito;
         this.monto = carrito.calcularTotal();
         this.fecha = new Date();
-        this.carrito = carrito;
+        this.estado = "pendiente";
     }
-
-    // Getters y Setters (simplicidad)
+    
+    public int getId() { return id; }
+    public int getIdUsuario() { return idUsuario; }
+    public Carrito getCarrito() { return carrito; }
     public double getMonto() { return monto; }
-    public void setMonto(double monto) { this.monto = monto; }
-
-    // Método principal
-    public boolean realizarPago(Pago pago) {
-        this.pago = pago;
-        System.out.println("Iniciando compra por un total de: " + monto);
-        
-        boolean pagoExitoso = pago.realizarPago();
-        
-        if (pagoExitoso) {
-            // Lógica para descontar stock (debe hacerse en Tienda o Gestor)
-            System.out.println("Compra exitosa el " + fecha.toString());
-        } else {
-            System.out.println("La compra no pudo completarse.");
-        }
-        return pagoExitoso;
+    public Date getFecha() { return fecha; }
+    public String getEstado() { return estado; }
+    public void setEstado(String estado) { this.estado = estado; }
+    
+    @Override
+    public String toString() {
+        return "Compra{" + "id=" + id + ", usuario=" + idUsuario + 
+               ", monto=$" + monto + ", estado='" + estado + '\'' + '}';
     }
 }

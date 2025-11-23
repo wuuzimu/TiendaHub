@@ -1,20 +1,20 @@
 package modelos;
-
 import java.io.Serializable;
 
-// Se recomienda que sea abstracta ya que un "Pago" genérico no se instancia directamente
 public abstract class Pago implements Serializable {
-    
+    private static final long serialVersionUID = 1L;
     protected double monto;
-
+    protected String estado;
+    
     public Pago(double monto) {
         this.monto = monto;
+        this.estado = "pendiente";
     }
-
-    // Getters y Setters
+    
     public double getMonto() { return monto; }
-    public void setMonto(double monto) { this.monto = monto; }
-
-    // Método abstracto que debe ser implementado por subclases
+    public String getEstado() { return estado; }
+    public void setEstado(String estado) { this.estado = estado; }
+    
     public abstract boolean realizarPago();
+    public abstract String obtenerDetalles();
 }

@@ -1,46 +1,47 @@
-package modelos; // O ajusten el paquete si es necesario
-
+package modelos;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import modelos.VideoJuego;
-import java.io.Serializable;
 
 public class Carrito implements Serializable {
+    private static final long serialVersionUID = 1L;
+    private int id;
+    private List<VideoJuego> items;
+    private static int contadorId = 1;
     
-    private List<VideoJuego> listItems;
-
     public Carrito() {
-        this.listItems = new ArrayList<>();
+        this.id = contadorId++;
+        this.items = new ArrayList<>();
     }
-
-    // Getters
-    public List<VideoJuego> getListItems() { return listItems; }
-
-    // Métodos de acción
-    public void agregarVideojuego(VideoJuego v) {
-        if (v.getStock() > 0) {
-            listItems.add(v);
-            System.out.println(v.getTitulo() + " agregado al carrito.");
-        } else {
-            System.out.println("No hay stock disponible de " + v.getTitulo());
+    
+    public int getId() { return id; }
+    public List<VideoJuego> getItems() { return items; }
+    
+    public void agregarItem(VideoJuego videojuego) {
+        items.add(videojuego);
+        System.out.println("'" + videojuego.getTitulo() + "' agregado al carrito.");
+    }
+    
+    public void eliminarItem(VideoJuego videojuego) {
+        if (items.remove(videojuego)) {
+            System.out.println("Videojuego eliminado del carrito.");
         }
     }
-
-    public void eliminarVideojuego(VideoJuego v) {
-        if (listItems.remove(v)) {
-            System.out.println(v.getTitulo() + " eliminado del carrito.");
-        } else {
-            System.out.println("El videojuego no estaba en el carrito.");
-        }
-    }
-
+    
     public double calcularTotal() {
-        double total = 0.0;
-        for (VideoJuego v : listItems) {
-            // Aquí se podría implementar la lógica de Promociones si estuviera ligada al Videojuego
-            // Por simplicidad, sumamos el precio base.
-            total += v.getPrecio(); 
-        }
-        return total;
+        return items.stream().mapToDouble(VideoJuego::getPrecio).sum();
+    }
+    
+    public void vaciar() {
+        items.clear();
+        System.out.println("Carrito vaciado.");
+    }
+    
+    public int getCantidadItems() { return items.size(); }
+    
+    @Override
+    public String toString() {
+        return "Carrito{" + "id=" + id + ", items=" + items.size() + 
+               ", total=$" + calcularTotal() + '}';
     }
 }

@@ -1,41 +1,53 @@
 package modelos;
-
-import java.util.Date;
 import java.io.Serializable;
 
 public class PagoTarjeta extends Pago implements Serializable {
-    
+    private static final long serialVersionUID = 1L;
     private String numeroTarjeta;
-    private Date fechaExp;
-
-    public PagoTarjeta(double monto, String numeroTarjeta, Date fechaExp) {
+    private String nombreTitular;
+    private String cvv;
+    private String fechaVencimiento;
+    
+    public PagoTarjeta(double monto, String numeroTarjeta, String nombreTitular, 
+                       String cvv, String fechaVencimiento) {
         super(monto);
         this.numeroTarjeta = numeroTarjeta;
-        this.fechaExp = fechaExp;
+        this.nombreTitular = nombreTitular;
+        this.cvv = cvv;
+        this.fechaVencimiento = fechaVencimiento;
     }
-
-    // Getters y Setters
+    
     public String getNumeroTarjeta() { return numeroTarjeta; }
-    public Date getFechaExp() { return fechaExp; }
-
-    public void setNumeroTarjeta(String numeroTarjeta) { this.numeroTarjeta = numeroTarjeta; }
-    public void setFechaExp(Date fechaExp) { this.fechaExp = fechaExp; }
-
-    // Métodos de acción
-    public boolean validarTarjeta() {
-        // Lógica simple de validación (podría ser más compleja, ej. algoritmo de Luhn)
-        return numeroTarjeta != null && numeroTarjeta.length() >= 13 && fechaExp.after(new Date());
-    }
-
+    public String getNombreTitular() { return nombreTitular; }
+    public String getCVV() { return cvv; }
+    public String getFechaVencimiento() { return fechaVencimiento; }
+    
     @Override
     public boolean realizarPago() {
         if (validarTarjeta()) {
-            System.out.println("Procesando pago con tarjeta por: " + monto);
-            // Simulación de conexión a pasarela de pago...
-            return true; // Éxito en la transacción
+            this.estado = "completado";
+            System.out.println("Pago de $" + monto + " realizado exitosamente.");
+            System.out.println("Tarjeta: **** **** **** " + numeroTarjeta.substring(12));
+            return true;
         } else {
-            System.out.println("Error: Tarjeta no válida o expirada.");
+            this.estado = "rechazado";
+            System.out.println("Error: Tarjeta rechazada.");
             return false;
         }
+    }
+    
+    private boolean validarTarjeta() {
+        return numeroTarjeta.length() == 16 && cvv.length() == 3 && !fechaVencimiento.isEmpty();
+    }
+    
+    @Override
+    public String obtenerDetalles() {
+        return "Pago con Tarjeta - " + nombreTitular + " - $" + monto;
+    }
+    
+    @Override
+    public String toString() {
+        return "PagoTarjeta{" + "monto=$" + monto + ", estado='" + estado + 
+               "', titular='" + nombreTitular + '\'' + '}';
     }
 }
