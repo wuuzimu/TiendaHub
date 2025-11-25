@@ -37,14 +37,16 @@ public class Administrador extends javax.swing.JPanel {
         btnVerEstadisticas = new javax.swing.JButton();
         btnCerrarSesion = new javax.swing.JButton();
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
+        lblAdministrador.setBackground(new java.awt.Color(51, 51, 51));
         lblAdministrador.setFont(new java.awt.Font("Bookman Old Style", 0, 36)); // NOI18N
-        lblAdministrador.setForeground(new java.awt.Color(51, 51, 51));
+        lblAdministrador.setForeground(new java.awt.Color(255, 153, 0));
         lblAdministrador.setText("Administrador");
 
-        jTable1.setBackground(new java.awt.Color(204, 204, 204));
-        jTable1.setForeground(new java.awt.Color(51, 51, 51));
+        jTable1.setBackground(new java.awt.Color(0, 0, 0));
+        jTable1.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 153, 0)), javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 153, 0))));
+        jTable1.setForeground(new java.awt.Color(255, 153, 0));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"Gta 5", "Far Cry 2", "Counter Strike", "Far Cry 5"},
@@ -58,7 +60,7 @@ public class Administrador extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        btnAgregar.setBackground(new java.awt.Color(51, 51, 255));
+        btnAgregar.setBackground(new java.awt.Color(255, 153, 0));
         btnAgregar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         btnAgregar.setText("Agregar");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -67,19 +69,19 @@ public class Administrador extends javax.swing.JPanel {
             }
         });
 
-        btnEditar.setBackground(new java.awt.Color(51, 51, 255));
+        btnEditar.setBackground(new java.awt.Color(255, 153, 0));
         btnEditar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         btnEditar.setText("Editar");
 
-        btnEliminar.setBackground(new java.awt.Color(51, 51, 255));
+        btnEliminar.setBackground(new java.awt.Color(255, 153, 0));
         btnEliminar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         btnEliminar.setText("Eliminar");
 
-        btnVerCompras.setBackground(new java.awt.Color(51, 51, 255));
+        btnVerCompras.setBackground(new java.awt.Color(255, 153, 0));
         btnVerCompras.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         btnVerCompras.setText("Ver Compras");
 
-        btnVerEstadisticas.setBackground(new java.awt.Color(51, 51, 255));
+        btnVerEstadisticas.setBackground(new java.awt.Color(255, 153, 0));
         btnVerEstadisticas.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         btnVerEstadisticas.setText("Ver Estadisticas");
 
@@ -94,27 +96,27 @@ public class Administrador extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(34, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnAgregar)
-                                .addGap(49, 49, 49)
-                                .addComponent(btnEditar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnEliminar)
-                                .addGap(51, 51, 51)
-                                .addComponent(btnVerCompras)
-                                .addGap(44, 44, 44)
-                                .addComponent(btnVerEstadisticas))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 653, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(65, 65, 65))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnAgregar)
+                        .addGap(49, 49, 49)
+                        .addComponent(btnEditar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnEliminar)
+                        .addGap(51, 51, 51)
+                        .addComponent(btnVerCompras)
+                        .addGap(44, 44, 44)
+                        .addComponent(btnVerEstadisticas))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 653, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(65, 65, 65))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblAdministrador)
-                .addGap(245, 245, 245))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblAdministrador)
+                        .addGap(245, 245, 245))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnCerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,17 +124,17 @@ public class Administrador extends javax.swing.JPanel {
                 .addGap(17, 17, 17)
                 .addComponent(lblAdministrador)
                 .addGap(28, 28, 28)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAgregar)
                     .addComponent(btnEditar)
                     .addComponent(btnEliminar)
                     .addComponent(btnVerCompras)
                     .addComponent(btnVerEstadisticas))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addComponent(btnCerrarSesion)
-                .addContainerGap())
+                .addGap(14, 14, 14))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
