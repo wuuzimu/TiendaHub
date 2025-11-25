@@ -31,7 +31,6 @@ public class Pago extends javax.swing.JPanel {
         lblMontoTotal = new javax.swing.JLabel();
         lblNumerodetarjeta = new javax.swing.JLabel();
         txtNumerodetarjeta = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
         lblNombredeltitular = new javax.swing.JLabel();
         txtNombredeltitular = new javax.swing.JTextField();
         lblFechadevencimiento = new javax.swing.JLabel();
@@ -46,18 +45,18 @@ public class Pago extends javax.swing.JPanel {
         btnPagar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
         lblRealizarPago.setFont(new java.awt.Font("Bookman Old Style", 0, 36)); // NOI18N
-        lblRealizarPago.setForeground(new java.awt.Color(51, 51, 51));
+        lblRealizarPago.setForeground(new java.awt.Color(255, 153, 0));
         lblRealizarPago.setText("Realizar Pago");
 
         lblMontoTotal.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblMontoTotal.setForeground(new java.awt.Color(51, 51, 51));
+        lblMontoTotal.setForeground(new java.awt.Color(255, 153, 0));
         lblMontoTotal.setText("Monto total:");
 
         lblNumerodetarjeta.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblNumerodetarjeta.setForeground(new java.awt.Color(51, 51, 51));
+        lblNumerodetarjeta.setForeground(new java.awt.Color(255, 153, 0));
         lblNumerodetarjeta.setText("Numero de tarjeta");
 
         txtNumerodetarjeta.setBackground(new java.awt.Color(102, 102, 102));
@@ -68,10 +67,8 @@ public class Pago extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setText("jLabel1");
-
         lblNombredeltitular.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblNombredeltitular.setForeground(new java.awt.Color(51, 51, 51));
+        lblNombredeltitular.setForeground(new java.awt.Color(255, 153, 0));
         lblNombredeltitular.setText("Nombre del titular");
 
         txtNombredeltitular.setBackground(new java.awt.Color(102, 102, 102));
@@ -82,24 +79,24 @@ public class Pago extends javax.swing.JPanel {
         });
 
         lblFechadevencimiento.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblFechadevencimiento.setForeground(new java.awt.Color(51, 51, 51));
+        lblFechadevencimiento.setForeground(new java.awt.Color(255, 153, 0));
         lblFechadevencimiento.setText("Fecha de vencimineto:");
 
         lblMes.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblMes.setForeground(new java.awt.Color(51, 51, 51));
+        lblMes.setForeground(new java.awt.Color(255, 153, 0));
         lblMes.setText("Mes");
 
         txtMes.setBackground(new java.awt.Color(102, 102, 102));
 
         lblDia.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblDia.setForeground(new java.awt.Color(51, 51, 51));
+        lblDia.setForeground(new java.awt.Color(255, 153, 0));
         lblDia.setText("Dia");
 
         txtDia.setBackground(new java.awt.Color(102, 102, 102));
 
         lblAño.setBackground(new java.awt.Color(255, 255, 255));
         lblAño.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblAño.setForeground(new java.awt.Color(51, 51, 51));
+        lblAño.setForeground(new java.awt.Color(255, 153, 0));
         lblAño.setText("Año");
 
         txtAño.setBackground(new java.awt.Color(102, 102, 102));
@@ -110,17 +107,17 @@ public class Pago extends javax.swing.JPanel {
         });
 
         lblCVV.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblCVV.setForeground(new java.awt.Color(51, 51, 51));
+        lblCVV.setForeground(new java.awt.Color(255, 153, 0));
         lblCVV.setText("cvv");
 
         pwdCVV.setBackground(new java.awt.Color(102, 102, 102));
 
-        btnPagar.setBackground(new java.awt.Color(0, 0, 255));
+        btnPagar.setBackground(new java.awt.Color(255, 153, 0));
         btnPagar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         btnPagar.setForeground(new java.awt.Color(255, 255, 255));
         btnPagar.setText("Pagar");
 
-        btnCancelar.setBackground(new java.awt.Color(0, 0, 255));
+        btnCancelar.setBackground(new java.awt.Color(255, 153, 0));
         btnCancelar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setText("Cancelar");
@@ -148,9 +145,7 @@ public class Pago extends javax.swing.JPanel {
                         .addGap(47, 47, 47)
                         .addComponent(lblNombredeltitular)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtNombredeltitular, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
-                        .addComponent(jLabel1))
+                        .addComponent(txtNombredeltitular, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(lblCVV)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -175,7 +170,7 @@ public class Pago extends javax.swing.JPanel {
                                 .addComponent(lblAño)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtAño, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,7 +181,6 @@ public class Pago extends javax.swing.JPanel {
                 .addComponent(lblMontoTotal)
                 .addGap(37, 37, 37)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
                     .addComponent(lblNumerodetarjeta)
                     .addComponent(txtNumerodetarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblNombredeltitular)
@@ -243,7 +237,6 @@ public class Pago extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnPagar;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblAño;
     private javax.swing.JLabel lblCVV;
