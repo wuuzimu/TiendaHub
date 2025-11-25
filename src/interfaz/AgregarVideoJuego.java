@@ -43,44 +43,44 @@ public class AgregarVideoJuego extends javax.swing.JPanel {
         btnGuardar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
         lblAgregarVideoJuego.setFont(new java.awt.Font("Bookman Old Style", 0, 36)); // NOI18N
-        lblAgregarVideoJuego.setForeground(new java.awt.Color(51, 51, 51));
+        lblAgregarVideoJuego.setForeground(new java.awt.Color(255, 153, 0));
         lblAgregarVideoJuego.setText("Agregar Video Juego");
 
         lblTitulo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblTitulo.setForeground(new java.awt.Color(51, 51, 51));
+        lblTitulo.setForeground(new java.awt.Color(255, 153, 0));
         lblTitulo.setText("Titulo");
 
         txtTitulo.setBackground(new java.awt.Color(102, 102, 102));
 
         lblGenero.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblGenero.setForeground(new java.awt.Color(51, 51, 51));
+        lblGenero.setForeground(new java.awt.Color(255, 153, 0));
         lblGenero.setText("Genero");
 
         txtGenero.setBackground(new java.awt.Color(102, 102, 102));
 
         lblPrecio.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblPrecio.setForeground(new java.awt.Color(51, 51, 51));
+        lblPrecio.setForeground(new java.awt.Color(255, 153, 0));
         lblPrecio.setText("Precio");
 
         txtPrecio.setBackground(new java.awt.Color(102, 102, 102));
 
         lblStock.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblStock.setForeground(new java.awt.Color(51, 51, 51));
+        lblStock.setForeground(new java.awt.Color(255, 153, 0));
         lblStock.setText("Stock");
 
         txtStock.setBackground(new java.awt.Color(102, 102, 102));
 
         lblDesarrolladora.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblDesarrolladora.setForeground(new java.awt.Color(51, 51, 51));
+        lblDesarrolladora.setForeground(new java.awt.Color(255, 153, 0));
         lblDesarrolladora.setText("Desarrolladora");
 
         txtDesarrolladora.setBackground(new java.awt.Color(102, 102, 102));
 
         lblDescripcion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblDescripcion.setForeground(new java.awt.Color(51, 51, 51));
+        lblDescripcion.setForeground(new java.awt.Color(255, 153, 0));
         lblDescripcion.setText("Descripcion");
 
         txtDescripcion.setBackground(new java.awt.Color(102, 102, 102));
@@ -90,12 +90,12 @@ public class AgregarVideoJuego extends javax.swing.JPanel {
             }
         });
 
-        btnGuardar.setBackground(new java.awt.Color(51, 51, 255));
+        btnGuardar.setBackground(new java.awt.Color(255, 153, 0));
         btnGuardar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         btnGuardar.setForeground(new java.awt.Color(255, 255, 255));
         btnGuardar.setText("Guardar");
 
-        btnCancelar.setBackground(new java.awt.Color(51, 51, 255));
+        btnCancelar.setBackground(new java.awt.Color(255, 153, 0));
         btnCancelar.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setText("Cancelar");
