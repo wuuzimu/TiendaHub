@@ -36,34 +36,35 @@ public class Carrito extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
         lblMicarrito.setFont(new java.awt.Font("Bookman Old Style", 0, 36)); // NOI18N
-        lblMicarrito.setForeground(new java.awt.Color(51, 51, 51));
+        lblMicarrito.setForeground(new java.awt.Color(255, 153, 0));
         lblMicarrito.setText("Mi carrito");
 
         lblTotal.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lblTotal.setForeground(new java.awt.Color(51, 51, 51));
+        lblTotal.setForeground(new java.awt.Color(255, 153, 0));
         lblTotal.setText("Total");
 
-        jButton1.setBackground(new java.awt.Color(51, 51, 255));
+        jButton1.setBackground(new java.awt.Color(255, 153, 0));
         jButton1.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         jButton1.setText("Eliminar Item ");
 
-        btnVaciarCarrito.setBackground(new java.awt.Color(51, 51, 255));
+        btnVaciarCarrito.setBackground(new java.awt.Color(255, 153, 0));
         btnVaciarCarrito.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         btnVaciarCarrito.setText("Vaciar Carrito");
 
-        btnProcederCompra.setBackground(new java.awt.Color(51, 51, 255));
+        btnProcederCompra.setBackground(new java.awt.Color(255, 153, 0));
         btnProcederCompra.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         btnProcederCompra.setText("Proceder Compra");
 
-        btnVolveralCatalogo.setBackground(new java.awt.Color(51, 51, 255));
+        btnVolveralCatalogo.setBackground(new java.awt.Color(255, 153, 0));
         btnVolveralCatalogo.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         btnVolveralCatalogo.setText("Volver al Catalogo");
 
-        jTable1.setBackground(new java.awt.Color(204, 204, 204));
-        jTable1.setForeground(new java.awt.Color(51, 51, 51));
+        jTable1.setBackground(new java.awt.Color(0, 0, 0));
+        jTable1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 153, 0)));
+        jTable1.setForeground(new java.awt.Color(255, 153, 0));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -81,24 +82,25 @@ public class Carrito extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(42, 42, 42)
-                        .addComponent(btnVaciarCarrito)
-                        .addGap(30, 30, 30)
-                        .addComponent(btnProcederCompra)
-                        .addGap(36, 36, 36)
-                        .addComponent(btnVolveralCatalogo))
-                    .addComponent(lblTotal)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 743, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 40, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblMicarrito)
                 .addGap(323, 323, 323))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblTotal)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jButton1)
+                            .addGap(75, 75, 75)
+                            .addComponent(btnVaciarCarrito)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnProcederCompra)
+                            .addGap(88, 88, 88)
+                            .addComponent(btnVolveralCatalogo))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 743, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 40, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -106,16 +108,21 @@ public class Carrito extends javax.swing.JPanel {
                 .addGap(42, 42, 42)
                 .addComponent(lblMicarrito)
                 .addGap(32, 32, 32)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
-                .addComponent(lblTotal)
-                .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(btnVaciarCarrito)
-                    .addComponent(btnProcederCompra)
-                    .addComponent(btnVolveralCatalogo, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(lblTotal)
+                        .addGap(46, 46, 46)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton1)
+                            .addComponent(btnVaciarCarrito)
+                            .addComponent(btnProcederCompra))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnVolveralCatalogo, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
